@@ -1,0 +1,25 @@
+name: Write code and open a Pull Request
+
+on:
+  workflow_dispatch:
+  inputs:
+    branch:
+      description: 'Which branch to execute?'
+      required: true
+      type: string
+
+jobs:
+  update-code:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - run: python script.py
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
