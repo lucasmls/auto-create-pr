@@ -2,11 +2,11 @@ name: Write code and open a Pull Request
 
 on:
   workflow_dispatch:
-  inputs:
-    branch:
-      description: 'Which branch to execute?'
-      required: true
-      type: string
+    inputs:
+      branch:
+        description: 'Which branch to execute?'
+        required: true
+        type: string
 
 jobs:
   update-code:
